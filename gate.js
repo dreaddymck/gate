@@ -43,4 +43,4 @@ app.use(function (req, res, next) {
 
 require('./routes')(app);
 
-app.listen(3000, () => console.log( app.config.appname + ' listening on port: ' + app.config.port ))
+app.listen( app.config.port, () => console.log( app.config.appname + ' listening on port: ' + app.config.port ))
