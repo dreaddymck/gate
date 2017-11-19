@@ -1,0 +1,31 @@
+{
+	"appname": "Gate Controller",
+	"port": 3000,
+	"support": "support@support.com",
+	"session": {
+		"secret": "gate(*&)-5568app",
+		"expires": "1h"
+	},
+	"database": {
+		"dbname": "gate",
+		"hostname": "127.0.0.1",
+		"username": "pi",
+		"password": ""
+	},
+	"smtp": {
+		"host" : "192.168.0.102",
+		"port" : 1025,
+		"secure" : false,
+		"ignoreTLS" : true
+	},
+	"uploads" : "/tmp/uploads/",
+	"recaptcha": {
+		"enabled": false,
+		"site_key": "",
+		"site_secret" : "",
+		"site_verify" : ""
+	},
+	"git-rss" : ""
+
+}
+

@@ -1,0 +1,23 @@
+{
+  "name": "gate",
+  "version": "0.0.0",
+  "description": "Gate push button toggle interface",
+  "main": "gate.js",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "cookie-session": "^1.3.2",
+    "express": "^4.16.2",
+    "helmet": "^3.9.0",
+    "jquery": "^3.2.1",
+    "morgan": "^1.9.0",
+    "node-fqdn": "^1.1.1",
+    "pug": "^0.1.0",
+    "serialport": "^3.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "dreaddymck",
+  "license": "ISC"
+}

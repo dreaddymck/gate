@@ -1,0 +1,16 @@
+.alert.alert-fade.alert-default.message_default.hidden
+.alert.alert-fade.alert-success.message_success.hidden
+.alert.alert-fade.alert-info.message_info.hidden
+.alert.alert-fade.alert-warning.message_warning.hidden
+.alert.alert-fade.alert-danger.message_danger.hidden
+
+if message_default && message_default.length
+	.alert.alert-fade.alert-default= message_default
+if message_success && message_success.length
+	.alert.alert-fade.alert-success= message_success
+if message_info && message_info.length
+	.alert.alert-fade.alert-info= message_info
+if message_warning && message_warning.length
+	.alert.alert-fade.alert-warning= message_warning
+if message_danger && message_danger.length
+	.alert.alert-fade.alert-danger= message_danger

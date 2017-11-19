@@ -1,0 +1,38 @@
+div.row
+		div.col-sm-2
+		div.col-sm-8
+			p
+
+				a.footer-link(href="#" ) Terms of service
+				|
+				| |
+				|
+				a.footer-link(href="#") Privacy Policy
+				|
+				| |
+				|
+				a.footer-link(href="#") FAQ
+				if !isAuthenticated
+					|
+					| |
+					|
+					a.footer-link(href="#" )  Login
+					|
+					| |
+					|
+					a.footer-link(href="#" )  Forgot password
+
+				br
+				| Use of #{appname} indicates that you indemnify us of any damages and hold us harmless.
+				| You agree that your use is at YOUR OWN RISK.
+				| Please report bugs/feature requests to
+				|
+				a.footer-link(href="mailto:#{support}") support
+				|.
+
+		div.col-sm-2
+
+block scripts
+script(src="/node_modules/jquery/dist/jquery.min.js")
+script(src="/node_modules/bootstrap/dist/js/bootstrap.min.js")
+script(src="/js/index.js")

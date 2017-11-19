@@ -1,0 +1,1 @@
+/home/pi/run/pm2.sh
