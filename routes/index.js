@@ -5,6 +5,7 @@ module.exports = function(app) {
 	 * debug last
 	 *
 	 */
+	require('./preferences')(app);
 	require('./routes')(app);
 	require('./serial')(app);
 
