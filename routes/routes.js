@@ -1,24 +1,21 @@
 "use strict";
 
-const preferences = require("../lib/preferences")
+const Promise 		= require('bluebird');
+const preferences 	= require("../lib/preferences")
 
 module.exports = function(app) {
 
 
 	app.get('/', (req, res) => {
 
-		new Promise(function(resolve, reject){
+		Promise.try(()=>{
 			return preferences.theme_list();
 		})
-		.then((response)=>{
-			console.log(response);
-			res.render('index',{response: response})
+		.then((data)=>{
+			res.render('index',{theme: data})
 		})
 		.catch((err)=>{
-			res.render('index')
+			res.render('index',{error: err})
 		})
-
 	})
-
-
 }

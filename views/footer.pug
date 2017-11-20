@@ -1,15 +1,35 @@
 div.row
-		div.col-sm-2
-		div.col-sm-8
-			p
-				| Use of #{appname} states that you indemnify us and hold us harmless of any damages.
-				| You agree that your use is at YOUR OWN RISK.
-				| Please report bugs/feature requests to
-				|
-				a(href=`mailto:`+ support) support
-				|.
+	div.col-sm-2
+	div.col-sm-8
+		p
+			| Please report bugs/feature requests to
+			|
+			a(href=`mailto:`+ support) support
+			|.
 
-		div.col-sm-2
+	div.col-sm-2
+
+div.row
+	div.col-sm-2
+	div.col-sm-8
+
+		.dropdown
+
+			.btn.btn-xs.btn-info.btn.dropdown-toggle(type="button",data-toggle="dropdown")
+				= (  preferences && preferences.theme ) ? preferences.theme + " " : "Select a theme  "
+				span.caret
+
+			ul.dropdown-menu.theme-selection(role="menu", aria-labelledby="theme-selection")
+				li(role="presentation")
+					a(role="menuitem", tabindex="-1",href="#", value=)  Default
+
+				for item in theme
+					li(role="presentation")
+						a(role="menuitem", tabindex="-1",href="#", value=item)= item
+
+	div.col-sm-2
+
+
 
 block scripts
 script(src="/node_modules/jquery/dist/jquery.min.js")

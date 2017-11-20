@@ -29,15 +29,19 @@ app.use(session({
 	resave: false,
 	saveUninitialized: false,
 	cookie: {
-		maxAge: 60 * 1000 //1 minute
+        secureProxy: true,
+        httpOnly: true,
+		maxAge: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 7 days
 	},
 }));
 app.use(function (req, res, next) {
-	res.locals.user				= req.user
+	res.locals.user				= req.user;
 	res.locals.prevdata 		= req.body;
 	res.locals.appname  		= app.config.appname;
 	res.locals.support  		= app.config.support;
-	res.locals.basedir      	= path.join(__dirname, 'node_modules') // pug bootstrap
+	res.locals.basedir      	= path.join(__dirname, 'node_modules'); // pug bootstrap
+	res.locals.preferences		= req.session.preferences ? req.session.preferences : "";
+	res.locals.theme_css		= (req.session.preferences && req.session.preferences.theme) ? "/css/theme/" + req.session.preferences.theme : "/node_modules/bootstrap/dist/css/bootstrap.min.css"
 	next();
 });
 

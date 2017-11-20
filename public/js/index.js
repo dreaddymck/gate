@@ -19,5 +19,14 @@ $( document ).ready( function () {
 			},3000);
 
 		})
-	})
+	}),
+    $(".theme-selection").on('click', 'li a', function(e){
+
+    	e.preventDefault();
+
+    	$.get('/preferences/theme', {theme: $(this).attr("value")} ).done(function(response){
+    		location.reload()
+		})
+
+    });
 });
