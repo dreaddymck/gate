@@ -8,6 +8,16 @@ module.exports = function(app) {
 
 	app.get('/', (req, res) => {
 
+		console.log(app.config.redirect)
+
+		if(app.config.redirect){
+			res.writeHead(302, {
+				  'Location': app.config.redirect
+				});
+				res.end();
+				return null
+		}
+
 		Promise.try(()=>{
 			return preferences.theme_list();
 		})

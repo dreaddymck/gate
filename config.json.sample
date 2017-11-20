@@ -25,7 +25,8 @@
 		"site_secret" : "",
 		"site_verify" : ""
 	},
-	"git-rss" : ""
+	"git-rss" : "",
+	"redirect" :"http://192.168.0.103:3000"
 
 }
 
