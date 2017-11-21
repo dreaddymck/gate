@@ -19,18 +19,23 @@ app.set('trust proxy');
 app.set("view engine", "pug");
 app.set("/", path.join(__dirname, "views"));
 
+app.use(express.static('public'))
+app.use('/node_modules', express.static(__dirname + '/node_modules/'));
+
 app.use(morgan('tiny', {}));
 if (app.get('env') === 'development') {
 	app.use(morgan('dev'));
 }
 app.use(helmet()); // protect api from some well-known web vulnerabilities by setting HTTP headers appropriately.
-app.use(cookieParser(config.session.secret));
+app.use(cookieParser(config.session.secret,{
+	domain: fqdn() + ':' + app.config.port, //for session conflict?
+	maxAge: ms(app.config.session.expires),
+}));
 app.use(session({
 	secret: config.session.secret,
 	name: fqdn() + ':' + app.config.port, //for session conflict?
 	cookie: {
 		maxAge: ms(app.config.session.expires),
-		httpOnly: true
 	}
 }));
 app.use(function (req, res, next) {
@@ -39,13 +44,12 @@ app.use(function (req, res, next) {
 	res.locals.appname  		= app.config.appname;
 	res.locals.support  		= app.config.support;
 	res.locals.basedir      	= path.join(__dirname, 'node_modules'); // pug bootstrap
-	res.locals.preferences		= preferences.get(req, res);
-	res.locals.theme_css		= preferences.theme(req, res);
+	res.locals.preferences		= preferences.get(app, req, res);
+	res.locals.theme_css		= preferences.theme(app, req, res);
 	next();
 });
 
-app.use(express.static('public'))
-app.use('/node_modules', express.static(__dirname + '/node_modules/'));
+
 
 require('./routes')(app);
 
