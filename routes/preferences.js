@@ -1,15 +1,12 @@
 'use strict';
 
+const preferences 	= require('../lib/preferences');
 
 module.exports = function(app) {
 
 	app.get ([ '/preferences/theme'], (req, res) => {
 
-		req.session.preferences = req.session.preferences ? req.session.preferences : {};
-
-		req.session.preferences.theme = req.query.theme
-
-		res.send(req.session.preferences);
+		res.send( preferences.theme_set(req) );
 
 	})
 
