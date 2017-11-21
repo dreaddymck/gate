@@ -9,7 +9,13 @@ $( document ).ready( function () {
 
 		$.post('/serial/toggle',{}).done(function(response){
 
-			//console.log(response)
+			//console.log(response.status)
+
+			if( response.status !== "true" ){
+				message.display(response.status, "message_danger");
+			}else{
+				message.display("Please wait.", "message_success");
+			}
 
 			setTimeout(	function(){
 
