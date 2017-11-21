@@ -5,10 +5,9 @@ block content
 	form(name="gate", id="gate" method="POST", action="#")
 
 		div.row
-
 			div.col-sm-2
 			div.col-sm-8
-				include message
+
 				.panel.panel-default
 					.panel-heading
 						.row
@@ -18,7 +17,12 @@ block content
 
 
 					.panel-body
-						input.btn.btn-lg.btn-primary.btn-block.btn-toggle(type="submit", value="Toggle")
+						.row
+							.col-sm-12
+								input.btn.btn-lg.btn-primary.btn-block.btn-toggle(type="submit", value="Toggle")
+						.row
+							.col-sm-12
+								include message
 
 			div.col-sm-2
 

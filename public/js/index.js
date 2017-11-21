@@ -11,10 +11,8 @@ $( document ).ready( function () {
 
 			//console.log(response.status)
 
-			if( response.status !== "true" ){
+			if( response.status ){
 				message.display(response.status, "message_danger");
-			}else{
-				message.display("Please wait.", "message_success");
 			}
 
 			setTimeout(	function(){
