@@ -4,6 +4,7 @@ const express 		= require('express');
 const helmet 		= require('helmet');
 const morgan 		= require('morgan');
 const path 			= require('path');
+const ms 			= require('ms');
 const fqdn 			= require('node-fqdn');
 const cookieParser 	= require('cookie-parser');
 const session 		= require('cookie-session');
@@ -28,7 +29,8 @@ app.use(session({
 	secret: config.session.secret,
 	name: fqdn() + ':' + app.config.port, //for session conflict?
 	cookie: {
-		expires: new Date(253402300000000),
+		maxAge: ms(app.config.session.expires),
+		httpOnly: true
 	}
 }));
 app.use(function (req, res, next) {
