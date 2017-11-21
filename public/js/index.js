@@ -4,8 +4,10 @@ $( document ).ready( function () {
 
 		e.preventDefault();
 
-		$('.btn-toggle').prop('disabled', true);
-		$('.btn-toggle').val("Wait");
+		$('.btn-toggle').prop('disabled', false);
+		$('.btn-toggle').removeClass('btn-primary');
+		$('.btn-toggle').addClass('btn-warning');
+		$('.btn-toggle').val("Please wait");
 
 		$.post('/serial/toggle',{}).done(function(response){
 
@@ -18,7 +20,9 @@ $( document ).ready( function () {
 			setTimeout(	function(){
 
 				$('.btn-toggle').prop('disabled', false);
-				$('.btn-toggle').val("Toggle");
+				$('.btn-toggle').removeClass('btn-warning');
+				$('.btn-toggle').addClass('btn-primary');
+				$('.btn-toggle').val("Toggle open/close");
 
 			},3000);
 
@@ -33,4 +37,10 @@ $( document ).ready( function () {
 		})
 
     });
+
+	$('.btn-toggle').prop('disabled', false);
+	$('.btn-toggle').removeClass('btn-warning');
+	$('.btn-toggle').addClass('btn-primary');
+	$('.btn-toggle').val("Toggle open/close");
+
 });
