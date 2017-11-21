@@ -9,7 +9,7 @@ $( document ).ready( function () {
 
 		$.post('/serial/toggle',{}).done(function(response){
 
-			console.log(response)
+			//console.log(response)
 
 			setTimeout(	function(){
 
