@@ -24,20 +24,11 @@ if (app.get('env') === 'development') {
 }
 app.use(helmet()); // protect api from some well-known web vulnerabilities by setting HTTP headers appropriately.
 app.use(cookieParser(config.session.secret));
-app.use(express.static('public'))
-app.use('/node_modules', express.static(__dirname + '/node_modules/'));
 app.use(session({
 	secret: config.session.secret,
 	name: fqdn() + ':' + app.config.port, //for session conflict?
-	resave: false,
-	saveUninitialized: false,
-	cookie: {
-        secureProxy: true,
-        httpOnly: true,
-		maxAge: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 7 days
-	},
+	cookie: {expires: new Date(253402300000000)}
 }));
-
 app.use(function (req, res, next) {
 	res.locals.user				= req.user;
 	res.locals.prevdata 		= req.body;
@@ -48,6 +39,9 @@ app.use(function (req, res, next) {
 	res.locals.theme_css		= preferences.theme(req, res);
 	next();
 });
+
+app.use(express.static('public'))
+app.use('/node_modules', express.static(__dirname + '/node_modules/'));
 
 require('./routes')(app);
 
