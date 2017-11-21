@@ -27,7 +27,9 @@ app.use(cookieParser(config.session.secret));
 app.use(session({
 	secret: config.session.secret,
 	name: fqdn() + ':' + app.config.port, //for session conflict?
-	cookie: {expires: new Date(253402300000000)}
+	cookie: {
+		expires: new Date(253402300000000),
+	}
 }));
 app.use(function (req, res, next) {
 	res.locals.user				= req.user;
