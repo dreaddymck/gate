@@ -6,7 +6,7 @@ const preferences 	= require("../lib/preferences")
 module.exports = function(app) {
 
 
-	app.get('/', (req, res) => {
+	app.all('/', (req, res) => {
 
 		if(app.config.redirect){
 			res.writeHead(302, {
