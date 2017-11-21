@@ -21,9 +21,11 @@ module.exports = function(app) {
 		})
 		.then((data)=>{
 			res.render('index',{theme: data})
+			return null;
 		})
 		.catch((err)=>{
 			res.render('index',{error: err})
+			return null;
 		})
 	})
 }
