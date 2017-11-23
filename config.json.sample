@@ -2,6 +2,10 @@
 	"appname": "Gate Controller",
 	"port": 3000,
 	"support": "support@support.com",
+	"device": {
+		"port":"",
+		"baudrate":""
+	},
 	"session": {
 		"secret": "gate(*&)-5568app",
 		"expires": "1h"
