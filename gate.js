@@ -5,7 +5,7 @@ const helmet 		= require('helmet');
 const morgan 		= require('morgan');
 const path 			= require('path');
 const ms 			= require('ms');
-const fqdn 			= require('node-fqdn');
+const os 			= require("os");
 const cookieParser 	= require('cookie-parser');
 const session 		= require('cookie-session');
 const config 		= require('./config.json');
@@ -28,12 +28,12 @@ if (app.get('env') === 'development') {
 }
 app.use(helmet()); // protect api from some well-known web vulnerabilities by setting HTTP headers appropriately.
 app.use(cookieParser(config.session.secret,{
-	domain: fqdn() + ':' + app.config.port, //for session conflict?
+	domain: os.hostname() + ':' + app.config.port, //for session conflict?
 	maxAge: ms(app.config.session.expires),
 }));
 app.use(session({
 	secret: config.session.secret,
-	name: fqdn() + ':' + app.config.port, //for session conflict?
+	name: os.hostname() + ':' + app.config.port, //for session conflict?
 	cookie: {
 		maxAge: ms(app.config.session.expires),
 	}
