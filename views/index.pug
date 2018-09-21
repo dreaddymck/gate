@@ -19,11 +19,16 @@ block content
 					.panel-body
 						.row
 							.col-sm-12
-								input.btn.btn-lg.btn-block.btn-toggle.btn-warning(type="submit", value="Loading...", disabled="true")
+								p
+									input.btn.btn-lg.btn-block.btn-toggle.btn-warning(type="submit", value="Loading...", disabled="true")
 						.row
 							.col-sm-12
-								include message
-
+								p
+									include message
+						.row
+							.col-sm-6.col-sm-offset-3
+								if image
+									|<img src="#{image}" height="100%" width="100%">							
 			div.col-sm-2
 
 
