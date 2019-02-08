@@ -11,8 +11,8 @@ block content
 				.panel.panel-default
 					.panel-heading
 						h3=appname
-							if version
-								small  - Ver. #{version}
+							if package_json
+								small  - Ver. #{package_json.version}
 					.panel-body
 						p
 							input.btn.btn-lg.btn-block.btn-toggle.btn-warning(type="submit", value="Loading...", disabled="true")

@@ -45,8 +45,7 @@ app.use(function (req, res, next) {
 	res.locals.appname  		= app.config.appname;
 	res.locals.support  		= app.config.support;
 	res.locals.image  			= app.config.image;
-	res.locals.version			= package_json.version;
-	console.log(package_json.version)
+	res.locals.package_json		= package_json;
 	res.locals.basedir      	= path.join(__dirname, 'node_modules'); // pug bootstrap
 	res.locals.preferences		= preferences.get(app, req, res);
 	res.locals.theme_css		= preferences.theme(app, req, res);

@@ -1,6 +1,6 @@
 div.row
 	div.col-sm-2
-	div.col-sm-8
+	div.col-sm-8.text-center
 		p
 			| Please report bugs/feature requests to
 			|
@@ -11,12 +11,12 @@ div.row
 
 div.row
 	div.col-sm-2
-	div.col-sm-8
+	div.col-sm-8.text-center
 
 		.dropdown
 
-			.btn.btn-xs.btn-info.btn.dropdown-toggle(type="button",data-toggle="dropdown")
-				= (  preferences && preferences.theme ) ? preferences.theme + " " : "Select a theme  "
+			.btn.btn-sm.btn-info.btn.dropdown-toggle(type="button",data-toggle="dropdown")
+				= (  preferences && preferences.theme ) ? preferences.theme + " " : "Change theme  "
 				span.caret
 
 			ul.dropdown-menu.theme-selection(role="menu", aria-labelledby="theme-selection")
