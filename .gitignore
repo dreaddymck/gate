@@ -2,3 +2,4 @@ config.json
 node_modules
 package-lock.json
 find.sh
+ecosystem.config.js
