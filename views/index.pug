@@ -5,31 +5,22 @@ block content
 	form(name="gate", id="gate" method="POST", action="#")
 
 		div.row
-			div.col-sm-2
-			div.col-sm-8
+			div.col-lg-2
+			div.col-lg-8
 
 				.panel.panel-default
 					.panel-heading
-						.row
-							.col-sm-12
-
-								h3=appname
-
-
+						h3=appname
+							if version
+								small  - Ver. #{version}
 					.panel-body
-						.row
-							.col-sm-12
-								p
-									input.btn.btn-lg.btn-block.btn-toggle.btn-warning(type="submit", value="Loading...", disabled="true")
-						.row
-							.col-sm-12
-								p
-									include message
-						.row
-							.col-sm-12
-								if image
-									|<img src="#{image}" height="100%" width="100%">							
-			div.col-sm-2
+						p
+							input.btn.btn-lg.btn-block.btn-toggle.btn-warning(type="submit", value="Loading...", disabled="true")
+						p
+							include message
+						if image
+							|<img src="#{image}" height="100%" width="100%">							
+			div.col-lg-2
 
 
 
