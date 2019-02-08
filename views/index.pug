@@ -9,17 +9,16 @@ block content
 			div.col-lg-8
 
 				.panel.panel-default
-					.panel-heading
-						h3=appname
-							if package_json
-								small  - Ver. #{package_json.version}
-					.panel-body
-						p
-							input.btn.btn-lg.btn-block.btn-toggle.btn-warning(type="submit", value="Loading...", disabled="true")
-						p
-							include message
-						if image
-							|<img src="#{image}" height="100%" width="100%">							
+
+					p=appname
+						if package_json
+							small  - Ver. #{package_json.version}
+					p
+						input.btn.btn-lg.btn-block.btn-toggle.btn-warning(type="submit", value="Loading...", disabled="true")
+					p
+						include message
+					if image
+						|<img src="#{image}" height="100%" width="100%">
 			div.col-lg-2
 
 
