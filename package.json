@@ -1,6 +1,6 @@
 {
   "name": "gate",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Gate push button toggle interface",
   "main": "gate.js",
   "dependencies": {
