@@ -7,7 +7,7 @@ module.exports = {
 
     // First application
     {
-      name: 'gate',
+      name: 'gate-development',
       script: 'gate.js',
       watch: true,
       watch_options: {
