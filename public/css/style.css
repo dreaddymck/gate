@@ -1,8 +1,2 @@
-.panel-body {
-    padding: 24px;
-}
-@media screen and (min-width: 61.5625em){
-
-
-
-}
+.panel-default { text-align: center }
+@media screen and (min-width: 61.5625em){ }
