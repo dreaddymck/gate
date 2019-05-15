@@ -1,2 +1,2 @@
-.panel-default { text-align: center }
+.panel-default > img {  display: block; margin-left: auto; margin-right: auto; }
 @media screen and (min-width: 61.5625em){ }
